@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ExamOne</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all">ALL</string>
+    <string name="social">SOCIAL</string>
+    <string name="alert">ALERTS</string>
+</resources>
