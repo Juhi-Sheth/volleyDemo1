@@ -1,0 +1,56 @@
+Adapter
+
+
+        final String url = model.getUrl();
+        holder.ReadMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                context.startActivity(i);
+            }
+        });
+
+
+        // for send data to second Activity..
+        holder.linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(context, Main2Activity.class);
+                in.putExtra("url", url);
+                context.startActivity(in);
+            }
+        });
+        
+        
+  Show Activity
+  
+  AppCompatTextView tv;
+    Toolbar toolbar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        tv = findViewById(R.id.tempTV);
+        toolbar = findViewById(R.id.toolbar);
+
+        toolbar.setTitle("Show");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        Intent in = getIntent();
+        String url = in.getStringExtra("url");
+
+        tv.setText(url);
+    }
+        
